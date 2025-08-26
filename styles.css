@@ -25,28 +25,38 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    flex-wrap: wrap;
+    min-width: 0;
 }
 @media (max-width: 800px) {
     .menu-toggle {
         display: flex;
     }
     .nav-links {
-        position: absolute;
+        position: fixed;
         top: 64px;
         right: 0;
+        left: 0;
         background: #23272f;
         flex-direction: column;
-        width: 200px;
+        width: 100vw;
+        max-width: 100vw;
         padding: 2rem 1rem;
         gap: 1.5rem;
         box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-        transform: translateX(100%);
+        transform: translateY(-200%);
         transition: transform 0.3s ease;
         opacity: 0.98;
         z-index: 150;
+        overflow-x: auto;
     }
     .nav-links.active {
-        transform: translateX(0);
+        transform: translateY(0);
+    }
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 1rem 1rem;
     }
 }
 .menu-toggle.active .bar:nth-child(1) {
@@ -73,9 +83,13 @@ nav {
     padding: 1rem 2rem;
     background-color: #23272f;
     color: #e5e7eb;
-    position: fixed;
-    width: 100%;
+    position: sticky;
     top: 0;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    z-index: 100;
+    overflow-x: auto;
 }
 
 nav .logo {
@@ -84,10 +98,8 @@ nav .logo {
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    margin: 0;
+    /* Remove duplicate nav ul styles, use .nav-links instead */
+    display: none;
 }
 
 nav ul li a {
@@ -172,8 +184,7 @@ footer {
 
 @media (max-width: 768px) {
     nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
+        display: none;
     }
 
     .hero h1 {
