@@ -42,13 +42,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>Bhanu's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            color: #22223b;
+        }
+        header {
+            background: #4f46e5;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(79,70,229,0.08);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav ul li a:hover {
+            color: #a5b4fc;
+        }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            text-align: center;
+            background: linear-gradient(120deg, #a5b4fc 0%, #818cf8 100%);
+            color: #fff;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            background: #fff;
+            color: #4f46e5;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(79,70,229,0.1);
+            transition: background 0.2s, color 0.2s;
+            text-decoration: none;
+            margin: 0.5rem;
+            display: inline-block;
+        }
+        .btn:hover {
+            background: #4f46e5;
+            color: #fff;
+        }
+        section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(79,70,229,0.08);
+            padding: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(79,70,229,0.16);
+        }
+        .project-card h3 {
+            margin-top: 0;
+            color: #4f46e5;
+        }
+        .project-card p {
+            color: #22223b;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .blog-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(79,70,229,0.08);
+            padding: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+        .blog-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(79,70,229,0.16);
+        }
+        .blog-card h3 {
+            margin-top: 0;
+            color: #4f46e5;
+        }
+        .blog-card p {
+            color: #22223b;
+        }
+        #contact {
+            background:#f8fafc;
+            text-align:center;
+        }
+        #contact a {
+            color: #4f46e5;
+            text-decoration: underline;
+        }
+        footer {
+            text-align:center;
+            padding:2rem 0;
+            color:#818cf8;
+            background:#fff;
+        }
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: none;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">Your Name</div>
+            <div class="logo">Bhanu</div>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -62,7 +235,7 @@
     <section id="home">
         <div class="hero">
             <h1>Welcome to My Portfolio</h1>
-            <p>I'm a [Your Profession, e.g., Web Developer] passionate about creating amazing things.</p>
+            <p>I'm a Web Developer passionate about creating amazing things.</p>
             <a href="#projects" class="btn">View My Work</a>
             <a href="resume.pdf" download class="btn">Download Resume</a>
         </div>
@@ -70,70 +243,77 @@
 
     <section id="about">
         <h2>About Me</h2>
-        <p>Hi, I'm [Your Name]. Copy and paste your summary from LinkedIn here.</p>
+        <p>Hi, I'm Bhanu. I love building beautiful, responsive web applications and learning new technologies.</p>
         <h3>Experience</h3>
         <ul>
-            <li>[Job Title] at [Company] - [Dates] - [Description from LinkedIn]</li>
-            <li>[Another Job Title] at [Another Company] - [Dates] - [Description]</li>
-            <!-- Add more as needed -->
+            <li>Frontend Developer at TechCorp - 2022-2025 - Built scalable UI components and improved site performance.</li>
+            <li>Web Designer at Creatives Inc - 2020-2022 - Designed modern, mobile-first websites for clients.</li>
         </ul>
         <h3>Skills</h3>
         <ul>
-            <li>[Skill 1 from LinkedIn]</li>
-            <li>[Skill 2]</li>
-            <!-- Add more -->
+            <li>HTML, CSS, JavaScript, React</li>
+            <li>Responsive Design, UI/UX</li>
+            <li>Git, Figma, Node.js</li>
         </ul>
         <h3>Education</h3>
         <ul>
-            <li>[Degree] from [Institution] - [Dates] - [Description from LinkedIn]</li>
-            <!-- Add more -->
+            <li>B.Tech in Computer Science from ABC University - 2016-2020</li>
         </ul>
     </section>
 
     <section id="projects">
         <h2>My Projects</h2>
         <div class="project-grid">
-            <div class="project-card">
-                <h3>Project 1</h3>
-                <p>[Description from LinkedIn or elsewhere. What does it do? Technologies used?]</p>
-                <a href="https://github.com/yourusername/project1" target="_blank">View on GitHub</a>
+            <div class="project-card fade-in">
+                <h3>Portfolio Website</h3>
+                <p>Modern, responsive portfolio built with HTML, CSS, and JavaScript.</p>
+                <a href="https://github.com/Bhanu88/portfolio" target="_blank">View on GitHub</a>
             </div>
-            <div class="project-card">
-                <h3>Project 2</h3>
-                <p>[Description]</p>
-                <a href="https://github.com/yourusername/project2" target="_blank">View on GitHub</a>
+            <div class="project-card fade-in">
+                <h3>Task Manager App</h3>
+                <p>Full-stack app for managing tasks, built with React and Node.js.</p>
+                <a href="https://github.com/Bhanu88/task-manager" target="_blank">View on GitHub</a>
             </div>
-            <!-- Add more project cards based on your LinkedIn featured projects or accomplishments -->
+            <div class="project-card fade-in">
+                <h3>Blog Platform</h3>
+                <p>Personal blog platform with custom CMS features.</p>
+                <a href="https://github.com/Bhanu88/blog-platform" target="_blank">View on GitHub</a>
+            </div>
         </div>
     </section>
 
     <section id="blog">
         <h2>My Blog</h2>
         <div class="blog-grid">
-            <div class="blog-card">
-                <h3>Blog Post 1</h3>
-                <p>Short description of the blog post.</p>
+            <div class="blog-card fade-in">
+                <h3>How to Build a Responsive Portfolio</h3>
+                <p>Tips and tricks for creating a modern, mobile-friendly portfolio site.</p>
                 <a href="blog1.html">Read More</a>
             </div>
-            <div class="blog-card">
-                <h3>Blog Post 2</h3>
-                <p>Short description.</p>
+            <div class="blog-card fade-in">
+                <h3>JavaScript Animation Techniques</h3>
+                <p>Learn how to add smooth animations to your web projects.</p>
                 <a href="blog2.html">Read More</a>
             </div>
-            <!-- Add more blog cards as you create new posts -->
         </div>
     </section>
 
     <section id="contact">
         <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
-        <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+        <form style="max-width:400px;margin:2rem auto;display:flex;flex-direction:column;gap:1rem;">
+            <input type="text" placeholder="Your Name" required style="padding:0.75rem;border-radius:8px;border:1px solid #a5b4fc;">
+            <input type="email" placeholder="Your Email" required style="padding:0.75rem;border-radius:8px;border:1px solid #a5b4fc;">
+            <textarea placeholder="Your Message" required style="padding:0.75rem;border-radius:8px;border:1px solid #a5b4fc;"></textarea>
+            <button type="submit" class="btn">Send</button>
+        </form>
+        <p>Email: <a href="mailto:bhanu.email@example.com">bhanu.email@example.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/bhanu88" target="_blank">linkedin.com/in/bhanu88</a></p>
+        <p>GitHub: <a href="https://github.com/Bhanu88" target="_blank">github.com/Bhanu88</a></p>
         <a href="resume.pdf" download class="btn">Download Resume</a>
     </section>
 
     <footer>
-        <p>&copy; 2025 Your Name. All rights reserved.</p>
+    <p>&copy; 2025 Bhanu. All rights reserved.</p>
     </footer>
 
     <script>
@@ -146,6 +326,17 @@
                 });
             });
         });
+        // Fade-in animation for portfolio and blog items
+        function onScrollFadeIn() {
+            document.querySelectorAll('.fade-in').forEach(function(el) {
+                var rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 60) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', onScrollFadeIn);
+        window.addEventListener('DOMContentLoaded', onScrollFadeIn);
     </script>
 </body>
 </html>
